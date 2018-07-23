@@ -7,5 +7,4 @@
 # @time: 2018/7/23 14:46
 # @Software: PyCharm
 
-
 from .util import create_admin, createView, trans

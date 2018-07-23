@@ -7,3 +7,6 @@
 # @time: 2018/7/23 14:46
 # @Software: PyCharm
 
+__version__ = '0.0.2'
+
+from . import djangohelper

@@ -7,9 +7,6 @@
 # @time: 2018/7/23 14:46
 # @Software: PyCharm
 
-import html.parser as HTMLParser
-
-from bs4 import BeautifulSoup
 import glob
 import os
 import re
@@ -69,9 +66,9 @@ def create_admin(modelname='models.py', adminname='admin_new.py', list_per_page=
 trans_list = ['.html', '.htm']
 
 
-def trans_file(file):
+def trans_file(file, encoding='utf-8'):
     splitext = os.path.splitext(file)
-    with open(file, "r", encoding='utf-8') as f1, open("{}.bak".format(splitext[0]), "w", encoding='utf-8') as f2:
+    with open(file, "r", encoding=encoding) as f1, open("{}.bak".format(splitext[0]), "w", encoding=encoding) as f2:
         for line in f1:
             if "<title>" in line:
                 f2.write("{% load staticfiles %}\n")
