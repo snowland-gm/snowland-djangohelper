@@ -76,7 +76,7 @@ def project_to_lines(src_project,
 
 
 if __name__ == '__main__':
-    project_to_lines(src_project='E:/cxl/codes/python/snowland-djangohelper',
+    project_to_lines(src_project='E:/cxl/codes/python/astardownload',
                      start_file='\n' + '-' * 15 + '\n',
                      end_file='\n' + '-' * 15 + '\n\n'
                      )

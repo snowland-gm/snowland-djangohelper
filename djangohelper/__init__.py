@@ -7,4 +7,8 @@
 # @time: 2018/7/23 14:46
 # @Software: PyCharm
 
+
+__version__ = '0.0.3'
+
 from .util import create_admin, createView, trans
+from .project2lines import project_to_lines
