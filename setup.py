@@ -9,7 +9,7 @@
 
 
 from setuptools import setup, find_packages
-from slapy import __version__
+from djangohelper import __version__
 setup(
     name='snowland-djangohelper',
     version=__version__,

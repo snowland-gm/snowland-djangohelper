@@ -8,7 +8,8 @@
 # @Software: PyCharm
 
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 from .util import create_admin, createView, trans
 from .project2lines import project_to_lines
+from .middleware import *
