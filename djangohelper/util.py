@@ -83,7 +83,7 @@ def trans_file(file, encoding='utf-8'):
 def trans_href(s):
     pattern_href = re.compile('href=[\"|\'].*?\.css[\"|\']')
     str_href = re.findall(pattern_href, s)
-    if str_href and (str(str_href).startswith('http')):
+    if str_href and not (str(str_href).startswith('http')):
         str_href = str_href[0][6:-1]
         s = s.replace(str_href, "{%static '" + str_href + "'%}")
     return s
@@ -98,11 +98,11 @@ def trans_src(s):
     return s
 
 
-def trans(root):
+def trans(root, encoding="utf-8"):
     files = [root + '/' + i for i in os.listdir(root) if
              os.path.isfile(root + '/' + i) and os.path.splitext(i)[1] in trans_list]
 
-    [trans_file(file) for file in files]
+    [trans_file(file, encoding) for file in files]
 
 
 def traversalDir_FirstDir(path):
@@ -132,5 +132,34 @@ def createView(templetesPath, viewPath, encoding="utf8"):
             f.write("    return render_to_response('" + each + "')\n\n")
 
 
+def add_view_to_urls(templatesPath, urlPath, appName, newUrlPath=None, encoding='utf8'):
+    if not newUrlPath:
+        newUrlPath = urlPath
+    splitext = os.path.splitext(urlPath)
+    name_list = traversalDir_FirstDir(templatesPath)
+    flag = False
+    with open(urlPath, "r", encoding=encoding) as fin, open("{}.bak".format(splitext[0]), "w",
+                                                            encoding=encoding) as fout:
+        lines = fin.readlines()
+        for line in lines:
+            if line.find("from django.contrib import admin") >= 0:
+                fout.write("from django.conf.urls import url\n")
+                fout.write("from {}.views import *\n".format(appName))
+            elif line.find("path('admin/', admin.site.urls),") >= 0 or line.find(
+                    'path("admin/", admin.site.urls),') >= 0:
+                flag = True
+            fout.write(line)
+            if flag:
+                for each in name_list:
+                    v = os.path.splitext(each)[0]
+                    fout.write("    url(r'^{}$', {})".format(v, v) + ",\n")
+                flag = False
+    if os.path.exists(newUrlPath):
+        os.remove(newUrlPath)
+    os.rename("{}.bak".format(splitext[0]), newUrlPath)
+
+
 if __name__ == '__main__':
-    create_admin()
+    add_view_to_urls("E:\\cxl\\codes\\python\\snowland-Homepage\\homepage\\templates",
+                     "E:\\cxl\\codes\\python\\snowland-Homepage\\snowland_homepage\\urls.py",
+                     "homepage")

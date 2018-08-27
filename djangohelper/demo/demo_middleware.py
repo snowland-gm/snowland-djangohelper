@@ -8,4 +8,5 @@
 # @Software: PyCharm
 
 
-from djangohelper.middleware import UserBasedExceptionMiddleware
+import djangohelper.middleware.UserBasedExceptionMiddleware
+
