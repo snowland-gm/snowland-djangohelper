@@ -8,5 +8,4 @@
 # @Software: PyCharm
 
 
-if __name__ == '__main__':
-    pass
+from .paginator import generate_paginator_result

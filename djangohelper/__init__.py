@@ -12,3 +12,4 @@ __version__ = '0.0.5.beta'
 
 from .util import create_admin, createView, trans
 from .project2lines import project_to_lines
+from .viewhelper import generate_paginator_result
