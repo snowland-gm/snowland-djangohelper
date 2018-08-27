@@ -12,7 +12,9 @@ from django.core.paginator import Paginator
 
 
 def generate_paginator_result(queryset, per_page, orphans=0,
-                              allow_empty_first_page=True, length_pagequeue=5, page=1):
+                              allow_empty_first_page=True,
+                              length_pagequeue=5, page=1,
+                              key_contacts='contacts', key_index='ind'):
     """
 
     :param queryset:
@@ -35,7 +37,7 @@ def generate_paginator_result(queryset, per_page, orphans=0,
         list_show = list(range(num_pages - length_pagequeue + 1, num_pages + 1))
 
     res_dict = {
-        'contacts': contacts,
-        "ind": list_show,
+        key_contacts: contacts,
+        key_index: list_show,
     }
     return res_dict
