@@ -16,7 +16,7 @@ headers = {"Content-type": "application/json"}
 prefix = 'http://'
 
 
-def request(host=host, port=port, service=service, params={}, headers=headers, prefix=prefix):
+def request(method=method, host=host, port=port, service=service, params={}, headers=headers, prefix=prefix):
     if method.lower() == 'get':
         host = host if host.startswith(prefix) else prefix + host
         service = service if service.endswith('/') else service + '/'

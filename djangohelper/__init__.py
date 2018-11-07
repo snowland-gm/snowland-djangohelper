@@ -8,9 +8,11 @@
 # @Software: PyCharm
 
 
-from .middleware import *
-from .project2lines import project_to_lines
-from .util import create_admin, createView, trans
-from .viewhelper import generate_paginator_result
-from .common import *
-__version__ = '0.0.5-beta'
+from djangohelper.middleware import *
+from djangohelper.project2lines import project_to_lines
+from djangohelper.util import create_admin, createView, trans
+from djangohelper.viewhelper import generate_paginator_result
+from djangohelper.requests import request
+from djangohelper.common import *
+
+__version__ = '0.0.6'
