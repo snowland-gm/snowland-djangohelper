@@ -10,6 +10,7 @@
 
 from setuptools import setup, find_packages
 from djangohelper import __version__
+
 setup(
     name='snowland-djangohelper',
     version=__version__,
@@ -40,5 +41,7 @@ setup(
     ],
     install_requires=[
         'glob2==0.6',
+        'django>=2.0.5',
+        'snowland-smx>=0.1.2',
     ]
 )

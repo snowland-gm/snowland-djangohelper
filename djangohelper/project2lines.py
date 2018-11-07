@@ -9,30 +9,21 @@
 
 import os
 import warnings
-
-list_allow_extension = [
-    '.py',
-    '.jl',
-    '.m',
-    '.js',
-    '.java',
-    '.xml',
-    '.html',
-    '.htm',
-    '.css',
-    '.txt',
-    '.cs',
-    '.cpp',
-    '.c',
-    '.h',
-    '.php'
-]
+from djangohelper.common import list_allow_extension
 
 
 def file_to_lines(src_file,
                   to_file='out.txt',
                   start_file='\n',
                   end_file='\n'):
+    """
+    文件打印到字符串中
+    :param src_file: 源文件
+    :param to_file: 目标文件
+    :param start_file: 文件头
+    :param end_file: 文件尾
+    :return:
+    """
     with open(to_file, 'a+', encoding='utf-8') as outfile, open(src_file, 'rb') as infile:
         lines = infile.readlines()
         try:
@@ -57,6 +48,15 @@ def project_to_lines(src_project,
                      start_file='\n',
                      end_file='\n',
                      allow_extension=list_allow_extension):
+    """
+    项目打印为文件（申请软著用）
+    :param src_project: 源文件项目根目录
+    :param to_file: 转化到的文件名
+    :param start_file: 文件开始
+    :param end_file: 文件结束
+    :param allow_extension: 需要转换的文件后缀
+    :return:
+    """
     if os.path.exists(to_file):
         warnings.warn('file ' + to_file + ' exist')
         txt = input('remove file?\n[Y]yes\n[N]no\n')
