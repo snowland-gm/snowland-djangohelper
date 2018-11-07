@@ -32,6 +32,7 @@ def request(method=method, host=host, port=port, service=service, params={}, hea
     except:
         return 'it is not a json response'
 
+
 if __name__ == '__main__':
     params = {'account': 'xx', 'password': 'xx'}
     print(request(params=params))
