@@ -15,4 +15,4 @@ from djangohelper.viewhelper import generate_paginator_result
 from djangohelper.requests import request
 from djangohelper.common import *
 
-__version__ = '0.0.5b8'
+__version__ = '0.0.6'
