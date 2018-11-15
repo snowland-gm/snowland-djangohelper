@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : 河北雪域网络科技有限公司 A.Star
 # @contact: astar@snowland.ltd
-# @site: 
+# @site: www.snowland.ltd
 # @file: setup.py
 # @time: 2018/7/23 15:24
 # @Software: PyCharm
@@ -22,7 +22,7 @@ setup(
     author_email='astar@snowland.ltd',
     maintainer='A.Star',
     maintainer_email='astar@snowland.ltd',
-    license='GPL-3.0',
+    license='BSD License',
     packages=find_packages(),
     platforms=["all"],
     url='https://gitee.com/snowlandltd/snowland-djangohelper',
@@ -37,11 +37,13 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries'
     ],
     install_requires=[
         'glob2==0.6',
         'django>=2.0.5',
         'snowland-smx>=0.1.2',
+        'requests'
     ]
 )
