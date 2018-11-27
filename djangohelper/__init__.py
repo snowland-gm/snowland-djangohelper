@@ -13,7 +13,7 @@ from djangohelper.project2lines import project_to_lines
 from djangohelper.util import create_admin, createView, trans
 from djangohelper.viewhelper import generate_paginator_result
 from djangohelper.requests import request
-from djangohelper.auth import hasher
+from djangohelper import auth
 from djangohelper.common import *
 
-__version__ = '0.0.6'
+__version__ = '0.0.6-beta'

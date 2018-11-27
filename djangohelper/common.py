@@ -25,7 +25,6 @@ list_allow_extension = [
     '.h',
     '.php'
 ]
-
 ERROR_CODE_UNKNOWN = -1  # 未知错误
 ERROR_CODE_OPERATION_FAILED = 0  # 操作失败
 ERROR_CODE_OPERATION_SUCCESS = 1  # 操作成功

@@ -17,19 +17,19 @@ def generate_paginator_result(queryset, per_page, orphans=0,
                               key_contacts='contacts', key_index='ind'):
     """
 
-    :param queryset:
-    :param per_page:
+    :param queryset: 得到的queryset
+    :param per_page: 每一页的条数
     :param orphans:
-    :param allow_empty_first_page:
-    :param length_pagequeue:
-    :param page:
+    :param allow_empty_first_page: 第一页是否可以为空业
+    :param length_pagequeue: 显示的页码数量
+    :param page: 第几页
     :return:
     """
     temp_list = json.loads(serializers.serialize('json', queryset))
     paginator = Paginator(temp_list, per_page, orphans, allow_empty_first_page)
     contacts = paginator.page(page)
     num_pages = contacts.paginator.num_pages
-    if num_pages < 5:
+    if num_pages < length_pagequeue:
         list_show = list(range(1, num_pages + 1))
     elif num_pages - page >= length_pagequeue:
         list_show = list(range(page, page + length_pagequeue))
