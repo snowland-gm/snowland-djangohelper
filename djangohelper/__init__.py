@@ -16,4 +16,4 @@ from djangohelper.requests import request
 from djangohelper import auth
 from djangohelper.common import *
 
-__version__ = '0.0.6-beta'
+__version__ = '0.0.6'

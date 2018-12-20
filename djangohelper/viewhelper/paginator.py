@@ -25,7 +25,10 @@ def generate_paginator_result(queryset, per_page, orphans=0,
     :param page: 第几页
     :return:
     """
-    temp_list = json.loads(serializers.serialize('json', queryset))
+    if not isinstance(queryset, dict):
+        temp_list = json.loads(serializers.serialize('json', queryset))
+    else:
+        temp_list = queryset
     paginator = Paginator(temp_list, per_page, orphans, allow_empty_first_page)
     contacts = paginator.page(page)
     num_pages = contacts.paginator.num_pages
