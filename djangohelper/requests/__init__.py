@@ -8,4 +8,4 @@
 # @Software: PyCharm
 
 
-from djangohelper.requests.requests_helper import request
+from djangohelper.requests.requests_helper import *

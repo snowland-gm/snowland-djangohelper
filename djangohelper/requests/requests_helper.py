@@ -26,7 +26,7 @@ def request(method=method, host=host, port=port, service=service, params={}, hea
         host = host if host.startswith(prefix) else prefix + host
         service = service if service.endswith('/') else service + '/'
         url = host + ':' + str(port) + '/' + service
-        res = req.post(url, json=params, headers=headers)
+        res = req.post(url, data=params, headers=headers)
     try:
         return str(res.json())
     except:

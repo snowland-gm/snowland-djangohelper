@@ -9,8 +9,8 @@
 
 import os
 import warnings
-from djangohelper.common import list_allow_extension
-
+from djangohelper.common import list_allow_extension, list_ignore
+import re
 
 def file_to_lines(src_file,
                   to_file='out.txt',
@@ -43,11 +43,50 @@ def file_to_lines(src_file,
         outfile.write(end_file)
 
 
+def walk(root,
+         to_file='out.txt',
+         start_file='\n',
+         end_file='\n',
+         allow_extension=list_allow_extension,
+         ignore=list_ignore):
+    for i in os.listdir(root):
+        flag = True
+        for each in ignore:
+            if '*' in each:
+                try:
+                    if re.findall(each, i):
+                        flag = False
+                        break
+                except:
+                    pass
+            else:
+                if i == each or (i == each[:-1] and each.endswith('/')):
+                    flag = False
+                    break
+        if flag:
+            src_file = os.path.join(root, i)
+            if os.path.isfile(src_file):
+                if os.path.splitext(src_file)[1] in allow_extension and src_file not in ignore:
+                    file_to_lines(src_file=src_file,
+                                  to_file=to_file,
+                                  start_file=start_file,
+                                  end_file=end_file
+                                  )
+            else:
+                walk(src_file,
+                     to_file,
+                     start_file,
+                     end_file,
+                     allow_extension,
+                     ignore)
+
+
 def project_to_lines(src_project,
                      to_file='out.txt',
                      start_file='\n',
                      end_file='\n',
-                     allow_extension=list_allow_extension):
+                     allow_extension=list_allow_extension,
+                     ignore=list_ignore):
     """
     项目打印为文件（申请软著用）
     :param src_project: 源文件项目根目录
@@ -55,6 +94,7 @@ def project_to_lines(src_project,
     :param start_file: 文件开始
     :param end_file: 文件结束
     :param allow_extension: 需要转换的文件后缀
+    :param ignore: 忽略转换的文件和文件夹
     :return:
     """
     if os.path.exists(to_file):
@@ -64,19 +104,16 @@ def project_to_lines(src_project,
             os.remove(to_file)
         else:
             return
-    for root, dirs, files in os.walk(src_project):
-        for each_file in files:
-            src_file = root + '/' + each_file
-            if os.path.splitext(src_file)[1] in allow_extension:
-                file_to_lines(src_file=src_file,
-                              to_file=to_file,
-                              start_file=start_file,
-                              end_file=end_file
-                              )
+    walk(src_project,
+         to_file,
+         start_file,
+         end_file,
+         allow_extension,
+         ignore)
 
 
 if __name__ == '__main__':
-    project_to_lines(src_project='E:/cxl/codes/python/astardownload',
+    project_to_lines(src_project='E:/cxl/codes/python/snowland-djangohelper',
                      start_file='\n' + '-' * 15 + '\n',
                      end_file='\n' + '-' * 15 + '\n\n'
                      )
