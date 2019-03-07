@@ -12,6 +12,7 @@ import warnings
 from djangohelper.common import list_allow_extension, list_ignore
 import re
 
+
 def file_to_lines(src_file,
                   to_file='out.txt',
                   start_file='\n',
@@ -113,7 +114,22 @@ def project_to_lines(src_project,
 
 
 if __name__ == '__main__':
-    project_to_lines(src_project='E:/cxl/codes/python/snowland-djangohelper',
-                     start_file='\n' + '-' * 15 + '\n',
-                     end_file='\n' + '-' * 15 + '\n\n'
+    project_to_lines(src_project='E:/cxl/codes/python/snowland-algorithm-python',
+                     # start_file='\n' + '-' * 15 + '\n',
+                     # end_file='\n' + '-' * 15 + '\n\n'
+                     allow_extension=['.py',
+                                      '.jl',
+                                      '.m',
+                                      '.js',
+                                      '.java',
+                                      '.xml',
+                                      '.html',
+                                      '.htm',
+                                      '.css',
+                                      '.cs',
+                                      '.cpp',
+                                      '.c',
+                                      '.h',
+                                      '.php'],
+                    ignore=[]
                      )

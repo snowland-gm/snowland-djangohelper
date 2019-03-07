@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qbyvln5k1j8u@ja8cj8dpg33t955ynj@7!$^2qa$lhm#lmn0s4'
 
 # Application definition
-
+DEBUG = False
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,9 +32,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djangohelper.snowlandauth',
     'djangohelper.friendlink',
+    'djangohelper.developer'
 ]
 
-
+ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = "snowlandauth.User"
 AUTHENTICATION_BACKENDS = (
     'snowlandauth.models.CustomBackend',

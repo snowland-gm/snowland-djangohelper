@@ -17,7 +17,7 @@ class User(AbstractUser):
     sex = models.CharField(max_length=2, default='F')
     realname = models.CharField(max_length=15, blank=True)
 
-
+#
 # https://blog.csdn.net/geerniya/article/details/78960812
 class CustomBackend(ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):

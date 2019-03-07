@@ -101,3 +101,10 @@ ERROR_CODE_ACCOUNT_LOCKED_ERROR = 6  # 账户被锁定、禁用|
 ERROR_CODE_IP_TRY_TIME_LIMITED_ERROR = 7  # 同一终端登录失败次数超过限制|
 ERROR_CODE_ACCOUNT_TRY_TIME_LIMITED_ERROR = 8  # 同一账户登录失败次数超过限制|
 ERROR_CODE_SERVER_ERROR = 99  # 后台处于维护状态|
+
+JSON_DEMO = {
+    'successful': False,
+    'data': None,
+    'code': ERROR_CODE_OPERATION_SUCCESS,
+    'message': None
+}
