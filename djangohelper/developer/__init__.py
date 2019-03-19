@@ -1,0 +1,1 @@
+from djangohelper.developer.apps import DeveloperConfig

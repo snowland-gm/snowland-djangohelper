@@ -1,0 +1,1 @@
+from djangohelper.friendlink.apps import FriendlinkConfig

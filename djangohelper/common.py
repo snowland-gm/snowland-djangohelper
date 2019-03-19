@@ -108,3 +108,13 @@ JSON_DEMO = {
     'code': ERROR_CODE_OPERATION_SUCCESS,
     'message': None
 }
+
+PAYLOAD_DEMO = {
+    "iss": None,  # Issue 发行者
+    "sub": None,  # 主题
+    "aud": None,  # Audience，观众
+    "exp": None,  # Expiration time，过期时间
+    "nbf": None,  # Not before
+    "iat": None,  # Issued at，发行时间
+    "jti": None,  # JWT ID
+}

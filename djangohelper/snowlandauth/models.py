@@ -13,17 +13,11 @@ class User(AbstractUser):
         ('GA', 'GroupAdmin'),
         ('CU', 'CommonUser'),
     )
+    userid = models.CharField(max_length=32, primary_key=True, auto_created=True)
+    QQ = models.CharField(max_length=32, default='123456', unique=True, blank=True, null=True)
     telephone = models.CharField(max_length=15, unique=True)
-    sex = models.CharField(max_length=2, default='F')
-    realname = models.CharField(max_length=15, blank=True)
+    sex = models.CharField(max_length=1, default='F')
+    realname = models.CharField(max_length=32, default=None)
+    IDcard = models.CharField(max_length=19, default=None, null=True, blank=True, unique=True)
 
-#
-# https://blog.csdn.net/geerniya/article/details/78960812
-class CustomBackend(ModelBackend):
-    def authenticate(self, request, username=None, password=None, **kwargs):
-        try:
-            user = User.objects.get(Q(username=username) | Q(email=username) | Q(telephone=username))
-            if user.check_password(password):
-                return user
-        except Exception as e:  # 可以捕获除与程序退出sys.exit()相关之外的所有异常
-            return None
+

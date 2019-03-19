@@ -4,6 +4,7 @@ from pysmx.SM2 import generate_keypair
 from pysmx.SM3 import SM3
 from djangohelper.developer.models import *
 from datetime import datetime
+from django.forms.models import model_to_dict
 from djangohelper.common import (
     JSON_DEMO, ERROR_CODE_PARTNER_ERROR, ERROR_CODE_UNKNOWN
 )
@@ -32,7 +33,7 @@ def new_application(req):
                 app_id=app,
                 public_key=keypair.publicKey,
             )
-            result['data'] = app.__dict__()
+            result['data'] = model_to_dict(app, ['access_key', 'app.access_key', 'name'])
             return JsonResponse(result)
         else:
             result['successful'] = False

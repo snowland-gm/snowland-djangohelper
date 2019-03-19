@@ -14,3 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from djangohelper.developer.views import *
+from django.conf.urls import url, include
+from django.contrib import admin
+from django.views import defaults
+from django.views.static import serve
+
+from . import settings
+
+urlpatterns = [
+    url('admin/', admin.site.urls),
+    url(r'^new_application$', new_application),
+    url(r'^change_key$', change_key),
+]
+
+
+handler400 = defaults.bad_request
+handler403 = defaults.permission_denied
+handler404 = defaults.page_not_found
+handler500 = defaults.server_error

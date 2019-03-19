@@ -24,6 +24,10 @@ setup(
     maintainer_email='astar@snowland.ltd',
     license='BSD License',
     packages=find_packages(),
+    package_data={
+        'djangohelper/templetes/': ['*.html']
+    },
+
     platforms=["all"],
     url='https://gitee.com/snowlandltd/snowland-djangohelper',
     classifiers=[
