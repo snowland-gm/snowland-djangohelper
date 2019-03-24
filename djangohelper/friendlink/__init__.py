@@ -1,1 +1,2 @@
-from djangohelper.friendlink.apps import FriendlinkConfig
+from djangohelper.friendlink import friendlink
+default_app_config = 'djangohelper.friendlink.friendlink.FriendlinkConfig'

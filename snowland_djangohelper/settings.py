@@ -39,3 +39,4 @@ AUTH_USER_MODEL = "snowlandauth.User"
 AUTHENTICATION_BACKENDS = (
     'snowlandauth.views.CustomBackend',
 )
+LANGUAGE_SESSION_KEY = 'snowland-language'
