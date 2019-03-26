@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: snowland-djangohelper
-Version: 0.0.7a3
+Version: 0.0.8
 Summary: django helper
 Home-page: https://gitee.com/snowlandltd/snowland-djangohelper
 Author: A.Star
@@ -22,20 +22,7 @@ Description: =====================
             python setup.py install
         
         #. dirs
-            1. friendlink(app)
-                the friend link application
-            #. middleware(package)
-                the middlewares
-            #. requests(package)
-                api store
-            #. viewhelper(package)
-                pageinator
-            #. common(file)
-                global define in djangohelper
-            #. project2lines(file)
-                write code in a file
-            #. util(file)
-                tool for django
+            WAITING...
         
         #. quick use
             WAITING...

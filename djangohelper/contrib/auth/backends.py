@@ -1,5 +1,6 @@
-from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Permission
+from djangohelper.contrib.auth import get_user_model
+from djangohelper.contrib.auth.models import Permission
+from djangohelper.db.models import Q
 
 UserModel = get_user_model()
 

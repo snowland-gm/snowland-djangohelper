@@ -13,20 +13,7 @@ from source code:
     python setup.py install
 
 #. dirs
-    1. friendlink(app)
-        the friend link application
-    #. middleware(package)
-        the middlewares
-    #. requests(package)
-        api store
-    #. viewhelper(package)
-        pageinator
-    #. common(file)
-        global define in djangohelper
-    #. project2lines(file)
-        write code in a file
-    #. util(file)
-        tool for django
+    WAITING...
 
 #. quick use
     WAITING...

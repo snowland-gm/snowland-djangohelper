@@ -1,8 +1,8 @@
 from djangohelper.apps import AppConfig
-from django.core import checks
-from django.db.models.query_utils import DeferredAttribute
-from django.db.models.signals import post_migrate
-from django.utils.translation import gettext_lazy as _
+from djangohelper.core import checks
+from djangohelper.db.models.query_utils import DeferredAttribute
+from djangohelper.db.models.signals import post_migrate
+from djangohelper.utils.translation import gettext_lazy as _
 
 from . import get_user_model
 from .checks import check_models_permissions, check_user_model

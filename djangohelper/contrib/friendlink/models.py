@@ -1,5 +1,5 @@
-from django.db import models
-import time
+from djangohelper.db import models
+
 
 class FriendLink(models.Model):
     site_name = models.CharField(max_length=32)

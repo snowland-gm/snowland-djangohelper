@@ -1,6 +1,6 @@
-from django import db
-from django.contrib import auth
-from django.utils.encoding import force_bytes
+from djangohelper import db
+from djangohelper.contrib import auth
+from djangohelper.utils.encoding import force_bytes
 
 UserModel = auth.get_user_model()
 

@@ -14,11 +14,9 @@ from djangohelper.util import create_admin, createView, trans
 from djangohelper.viewhelper import generate_paginator_result
 from djangohelper.requests import request
 from djangohelper.common import *
-from djangohelper.contrib import developer, friendlink, auth
-
 from django.utils.version import get_version
 
-VERSION = (0, 0, 7, 'alpha', 3)
+VERSION = (0, 0, 8, 'alpha', 0)
 
 __version__ = get_version(VERSION)
 
