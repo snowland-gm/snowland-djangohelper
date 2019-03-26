@@ -24,19 +24,18 @@ SECRET_KEY = 'qbyvln5k1j8u@ja8cj8dpg33t955ynj@7!$^2qa$lhm#lmn0s4'
 DEBUG = False
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    # 'django.contrib.auth',
+    'djangohelper.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'snowlandauth.apps.SnowlandauthConfig',
-    'friendlink.apps.FriendlinkConfig',
-    'developer.apps.DeveloperConfig'
+    # 'djangohelper.contrib.friendlink',
+    # 'djangohelper.contrib.developer'
 ]
 
 ALLOWED_HOSTS = ['*']
-AUTH_USER_MODEL = "snowlandauth.User"
-AUTHENTICATION_BACKENDS = (
-    'snowlandauth.views.CustomBackend',
-)
+AUTH_USER_MODEL = "auth.User"
+
+
 LANGUAGE_SESSION_KEY = 'snowland-language'

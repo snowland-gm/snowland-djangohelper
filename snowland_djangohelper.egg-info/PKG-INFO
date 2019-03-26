@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: snowland-djangohelper
+Version: 0.0.7a3
+Summary: django helper
+Home-page: https://gitee.com/snowlandltd/snowland-djangohelper
+Author: A.Star
+Author-email: astar@snowland.ltd
+License: BSD License
+Description-Content-Type: UNKNOWN
+Description: =====================
+        snowland-djangohelper
+        =====================
+        django helper
+        
+        1. install
+        from pypi:
+            pip install snowland-djangohelper
+        or
+        from source code:
+            download code from https://gitee.com/snowlandltd/snowland-djangohelper, you can choose a release version
+            pip install -r requirements.txt
+            python setup.py install
+        
+        #. dirs
+            1. friendlink(app)
+                the friend link application
+            #. middleware(package)
+                the middlewares
+            #. requests(package)
+                api store
+            #. viewhelper(package)
+                pageinator
+            #. common(file)
+                global define in djangohelper
+            #. project2lines(file)
+                write code in a file
+            #. util(file)
+                tool for django
+        
+        #. quick use
+            WAITING...
+Platform: all
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
