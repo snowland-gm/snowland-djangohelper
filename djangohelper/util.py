@@ -159,6 +159,33 @@ def add_view_to_urls(templatesPath, urlPath, appName, newUrlPath=None, encoding=
     os.rename("{}.bak".format(splitext[0]), newUrlPath)
 
 
+def re_trans_file(file, encoding='utf-8'):
+    splitext = os.path.splitext(file)
+    with open(file, "r", encoding=encoding) as f1, open("{}.bak".format(splitext[0]), "w", encoding=encoding) as f2:
+        for line in f1:
+            if "{% load staticfiles %}" in line:
+                continue
+            n_line = re_trans_static(line)
+            f2.write(n_line)
+
+    os.remove(file)
+    os.rename("{}.bak".format(splitext[0]), file)
+
+
+def re_trans_static(s):
+    pattern_src = re.compile("{%static '(.*?)'%}")
+    str_src = re.findall(pattern_src, s)
+    if str_src:
+        s = s.replace("{%static '" + str_src[0] + "'%}", str_src[0])
+    return s
+
+
+def re_trans(root, encoding="utf-8"):
+    files = [root + '/' + i for i in os.listdir(root) if
+             os.path.isfile(root + '/' + i) and os.path.splitext(i)[1] in trans_list]
+
+    [re_trans_file(file, encoding) for file in files]
+
 if __name__ == '__main__':
     add_view_to_urls("E:\\cxl\\codes\\python\\snowland-Homepage\\homepage\\templates",
                      "E:\\cxl\\codes\\python\\snowland-Homepage\\snowland_homepage\\urls.py",
