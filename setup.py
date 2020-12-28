@@ -8,7 +8,8 @@
 # @Software: PyCharm
 
 
-from setuptools import setup, find_packages
+from astartool.setuptool import setup
+from setuptools import find_packages
 from djangohelper import __version__
 
 setup(
@@ -38,15 +39,10 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: Implementation',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Software Development :: Libraries'
     ],
-    install_requires=[
-        'glob2==0.6',
-        'django>=2.0.5',
-        'snowland-smx>=0.2.0',
-        'requests'
-    ]
+    install_requires=load_install_requires()
 )

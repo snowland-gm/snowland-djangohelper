@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: 深圳星河软通科技有限公司 A.Star
+# @contact: astar@snowland.ltd
+# @site: www.astar.ltd
+# @file: __init__.py .py
+# @time: 2020/12/8 0:00
+# @Software: PyCharm
+
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import signals
 from django.db.models.aggregates import *  # NOQA

@@ -22,11 +22,6 @@ from django.views.static import serve
 
 from . import settings
 
-urlpatterns = [
-    url('admin/', admin.site.urls),
-    url(r'^new_application$', new_application),
-    url(r'^change_key$', change_key),
-]
 
 
 handler400 = defaults.bad_request
