@@ -1,10 +1,9 @@
 from django.db import models
-
+from djangohelper.db.models import BaseModel
 from django.contrib.auth.models import AbstractUser as User
-# from djangohelper.contrib.auth.models import User
 
 
-class Application(models.Model):
+class Application(BaseModel):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=256)
     access_key = models.CharField(max_length=256)
@@ -14,7 +13,7 @@ class Application(models.Model):
     update_time = models.DateTimeField(auto_created=True, auto_now=True)
 
 
-class ApplicationChangeList(models.Model):
+class ApplicationChangeList(BaseModel):
     app_id = models.ForeignKey(Application, on_delete=models.CASCADE)
     access_key_before = models.CharField(max_length=256)
     access_key_after = models.CharField(max_length=256)
@@ -23,7 +22,7 @@ class ApplicationChangeList(models.Model):
     change_time = models.DateTimeField(auto_now_add=True, auto_created=True)
 
 
-class KeyStore(models.Model):
+class KeyStore(BaseModel):
     app_id = models.ForeignKey(Application, on_delete=models.CASCADE)
     public_key = models.CharField(max_length=256)
     change_time = models.DateTimeField(auto_now_add=True, auto_created=True)

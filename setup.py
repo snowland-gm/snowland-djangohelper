@@ -8,7 +8,7 @@
 # @Software: PyCharm
 
 
-from astartool.setuptool import setup
+from astartool.setuptool import setup, load_install_requires
 from setuptools import find_packages
 from djangohelper import __version__
 

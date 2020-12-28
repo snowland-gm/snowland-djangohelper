@@ -34,4 +34,3 @@ if __name__ == '__main__':
 
     with open("django_socket.xml", "w+") as f:
         f.writelines(content)
-
