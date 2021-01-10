@@ -1,2 +1,1 @@
 djangohelper
-snowland_djangohelper

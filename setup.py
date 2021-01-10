@@ -10,8 +10,10 @@
 
 from astartool.setuptool import setup, load_install_requires
 from setuptools import find_packages
-from djangohelper import __version__
+from django.conf import settings
+settings.configure()
 
+from djangohelper import __version__
 setup(
     name='snowland-djangohelper',
     version=__version__,
@@ -32,8 +34,8 @@ setup(
     platforms=["all"],
     url='https://gitee.com/snowlandltd/snowland-djangohelper',
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Operating System :: OS Independent',
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
@@ -42,7 +44,15 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
-        'Topic :: Software Development :: Libraries'
+        'Framework :: Django',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.1',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Software Development',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
     ],
     install_requires=load_install_requires()
 )

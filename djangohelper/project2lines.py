@@ -9,7 +9,7 @@
 
 import os
 import warnings
-from djangohelper.common import list_allow_extension
+from djangohelper.common import list_allow_extension, list_ignore
 import re
 
 

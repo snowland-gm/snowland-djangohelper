@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: snowland-djangohelper
-Version: 0.0.8
+Version: 0.1.1
 Summary: django helper
 Home-page: https://gitee.com/snowlandltd/snowland-djangohelper
 Author: A.Star
@@ -12,6 +12,19 @@ Description: =====================
         =====================
         django helper
         
+        .. image:: https://img.shields.io/pypi/v/snowland-djangohelper.svg
+            :target: https://pypi.python.org/pypi/snowland-djangohelper
+        
+        .. image:: https://img.shields.io/pypi/dm/snowland-djangohelper.svg
+            :target: https://pypi.python.org/pypi/snowland-djangohelper
+        
+        .. image:: https://img.shields.io/pypi/wheel/snowland-djangohelper.svg
+            :target: https://pypi.python.org/pypi/snowland-djangohelper
+        
+        .. image:: https://img.shields.io/pypi/status/snowland-djangohelper.svg
+            :target: https://pypi.python.org/pypi/snowland-djangohelper
+        
+        
         1. install
         from pypi:
             pip install snowland-djangohelper
@@ -22,19 +35,43 @@ Description: =====================
             python setup.py install
         
         #. dirs
+        
+            1. friendlink(app)
+                the friend link application
+            #. middleware(package)
+                the middlewares
+            #. requests(package)
+                api store
+            #. viewhelper(package)
+                pageinator
+            #. common(file)
+                global define in djangohelper
+            #. project2lines(file)
+                write code in a file
+            #. util(file)
+                tool for django
+        
             WAITING...
         
         #. quick use
             WAITING...
 Platform: all
-Classifier: Development Status :: 4 - Beta
-Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: Implementation
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development
 Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks

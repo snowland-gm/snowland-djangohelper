@@ -67,6 +67,12 @@ trans_list = ['.html', '.htm']
 
 
 def trans_file(file, encoding='utf-8'):
+    """
+    对一个文件进行static替换
+    :param file: 
+    :param encoding: 
+    :return: 
+    """
     splitext = os.path.splitext(file)
     with open(file, "r", encoding=encoding) as f1, open("{}.bak".format(splitext[0]), "w", encoding=encoding) as f2:
         for line in f1:
@@ -81,6 +87,11 @@ def trans_file(file, encoding='utf-8'):
 
 
 def trans_href(s):
+    """
+    正则表达式的方式转换herf链接
+    :param s:
+    :return:
+    """
     pattern_href = re.compile('href=[\"|\'].*?\.css[\"|\']')
     str_href = re.findall(pattern_href, s)
     if str_href and not (str(str_href).startswith('http')):
@@ -90,6 +101,11 @@ def trans_href(s):
 
 
 def trans_src(s):
+    """
+    正则表达式的方式转换src
+    :param s:
+    :return:
+    """
     pattern_src = re.compile('src=".*?[\.js|\.css|\.png\.jpg|\.bmp|\.gif]"')
     str_src = re.findall(pattern_src, s)
     if str_src and (not str(str_src).startswith('http')):
@@ -99,6 +115,12 @@ def trans_src(s):
 
 
 def trans(root, encoding="utf-8"):
+    """
+    对文件夹进行转换static
+    :param root:
+    :param encoding:
+    :return:
+    """
     files = [root + '/' + i for i in os.listdir(root) if
              os.path.isfile(root + '/' + i) and os.path.splitext(i)[1] in trans_list]
 
@@ -122,6 +144,13 @@ def traversalDir_FirstDir(path):
 
 
 def createView(templetesPath, viewPath, encoding="utf8"):
+    """
+    通过views文件生成模板文件
+    :param templetesPath:
+    :param viewPath:
+    :param encoding:
+    :return:
+    """
     with open(viewPath, "w+", encoding=encoding) as f:
         f.write('from django.shortcuts import render, render_to_response\n')
         f.write('import json\n\n\n')
@@ -133,6 +162,15 @@ def createView(templetesPath, viewPath, encoding="utf8"):
 
 
 def add_view_to_urls(templatesPath, urlPath, appName, newUrlPath=None, encoding='utf8'):
+    """
+    通过模板文件生成url路径
+    :param templatesPath:
+    :param urlPath:
+    :param appName:
+    :param newUrlPath:
+    :param encoding:
+    :return:
+    """
     if not newUrlPath:
         newUrlPath = urlPath
     splitext = os.path.splitext(urlPath)
@@ -160,6 +198,12 @@ def add_view_to_urls(templatesPath, urlPath, appName, newUrlPath=None, encoding=
 
 
 def re_trans_file(file, encoding='utf-8'):
+    """
+    把static转换的文件转回
+    :param file:
+    :param encoding:
+    :return:
+    """
     splitext = os.path.splitext(file)
     with open(file, "r", encoding=encoding) as f1, open("{}.bak".format(splitext[0]), "w", encoding=encoding) as f2:
         for line in f1:
@@ -173,6 +217,11 @@ def re_trans_file(file, encoding='utf-8'):
 
 
 def re_trans_static(s):
+    """
+    把static转换的字符串转回
+    :param s:
+    :return:
+    """
     pattern_src = re.compile("{%static '(.*?)'%}")
     str_src = re.findall(pattern_src, s)
     if str_src:
@@ -181,12 +230,13 @@ def re_trans_static(s):
 
 
 def re_trans(root, encoding="utf-8"):
+    """
+    把static转换的文件夹转回
+    :param root:
+    :param encoding:
+    :return:
+    """
     files = [root + '/' + i for i in os.listdir(root) if
              os.path.isfile(root + '/' + i) and os.path.splitext(i)[1] in trans_list]
 
     [re_trans_file(file, encoding) for file in files]
-
-if __name__ == '__main__':
-    add_view_to_urls("E:\\cxl\\codes\\python\\snowland-Homepage\\homepage\\templates",
-                     "E:\\cxl\\codes\\python\\snowland-Homepage\\snowland_homepage\\urls.py",
-                     "homepage")

@@ -3,6 +3,19 @@ snowland-djangohelper
 =====================
 django helper
 
+.. image:: https://img.shields.io/pypi/v/snowland-djangohelper.svg
+    :target: https://pypi.python.org/pypi/snowland-djangohelper
+
+.. image:: https://img.shields.io/pypi/dm/snowland-djangohelper.svg
+    :target: https://pypi.python.org/pypi/snowland-djangohelper
+
+.. image:: https://img.shields.io/pypi/wheel/snowland-djangohelper.svg
+    :target: https://pypi.python.org/pypi/snowland-djangohelper
+
+.. image:: https://img.shields.io/pypi/status/snowland-djangohelper.svg
+    :target: https://pypi.python.org/pypi/snowland-djangohelper
+
+
 1. install
 from pypi:
     pip install snowland-djangohelper
@@ -13,6 +26,7 @@ from source code:
     python setup.py install
 
 #. dirs
+
     1. friendlink(app)
         the friend link application
     #. middleware(package)
@@ -27,6 +41,7 @@ from source code:
         write code in a file
     #. util(file)
         tool for django
+
     WAITING...
 
 #. quick use
