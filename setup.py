@@ -18,9 +18,9 @@ setup(
     name='snowland-djangohelper',
     version=__version__,
     description=(
-        'django helper'
+        'django helper, toolkit for django.'
     ),
-    long_description=open('README.rst').read(),
+    long_description=open('README.rst', encoding='utf-8').read(),
     author='A.Star',
     author_email='astar@snowland.ltd',
     maintainer='A.Star',
