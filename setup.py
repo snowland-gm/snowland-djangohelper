@@ -11,9 +11,11 @@
 from astartool.setuptool import setup, load_install_requires
 from setuptools import find_packages
 from django.conf import settings
+
 settings.configure()
 
 from djangohelper import __version__
+
 setup(
     name='snowland-djangohelper',
     version=__version__,
@@ -44,6 +46,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Framework :: Django',
         'Framework :: Django :: 2.2',
         'Framework :: Django :: 3.0',

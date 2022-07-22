@@ -21,6 +21,7 @@ VERSION = (0, 1, 1, 'final', 0)
 
 __version__ = get_version(VERSION)
 
+
 def setup(set_prefix=True):
     """
     Configure the settings (this happens as a side effect of accessing the
