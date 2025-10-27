@@ -1,0 +1,2 @@
+
+from djangohelper.pagination._pagination import BasePageNumberPagination

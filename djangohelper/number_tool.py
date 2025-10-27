@@ -10,16 +10,15 @@
 
 __author__ = 'A.Star'
 
-from random import choices
+
+from astartool.random import random_string as random_string_astartool, random_hex_string as random_hex_string_astartool
 
 hex_string = '0123456789abcdef'
 hex_string_upper = '0123456789ABCDEF'
 alnum_string = 'qwertyuiopasdfghjklzxcvbnm1234567890'
 
 
-def random_hex_string(n: int = 32, upper=False):
-    return ''.join(choices(hex_string_upper, k=n)) if upper else ''.join(choices(hex_string, k=n))
-
+random_hex_string = random_hex_string_astartool
 
 def random_string(n: int = 32):
-    return ''.join(choices(alnum_string, k=n))
+    return random_string_astartool(n, alnum_string)

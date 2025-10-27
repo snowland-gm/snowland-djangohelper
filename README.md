@@ -1,10 +1,3 @@
-
-**Version: 0.0.1**
-**Auth:    ASTARTOOL ROBOT**
-**Date:    2021-01-13 21:58:32.359340**
-
-
-
 # snowland-djangohelper
 
 [![version](https://img.shields.io/pypi/v/snowland-djangohelper.svg)](https://pypi.python.org/pypi/snowland-djangohelper)
@@ -24,19 +17,30 @@ from source code:
     python setup.py install
 
 2. dirs
-
-    - friendlink(app)
-        the friend link application
+    - auth(package)
+        support authentication methods for commercial passwords
+    - contrib
+        some general applications.
+    - db
+        Expanded the database functionality of Django.
     - middleware(package)
         the middlewares
+    - pagination(package)
+        expanded the paging function of DRF
     - requests(package)
         api store
     - viewhelper(package)
         pageinator
+    - viewset(package)
+        expanded the viewset function of DRF
+    - views(package)
+        same templates.
     - common(file)
         global define in djangohelper
     - project2lines(file)
         write code in a file
+    - number_tool
+        for generating random string
     - util(file)
         tool for django
 

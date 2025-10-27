@@ -22,7 +22,8 @@ setup(
     description=(
         'django helper, toolkit for django.'
     ),
-    long_description=open('README.rst', encoding='utf-8').read(),
+    long_description=open('README.md', encoding='utf-8').read(),
+    long_description_content_type='text/markdown',
     author='A.Star',
     author_email='astar@snowland.ltd',
     maintainer='A.Star',
@@ -30,7 +31,8 @@ setup(
     license='BSD License',
     packages=find_packages(),
     package_data={
-        'djangohelper/templetes/': ['*.html']
+        'djangohelper/templetes/': ['*.html'],
+        'views/templetes/': ['*.html']
     },
 
     platforms=["all"],
@@ -48,10 +50,18 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Framework :: Django',
         'Framework :: Django :: 2.2',
         'Framework :: Django :: 3.0',
         'Framework :: Django :: 3.1',
+        'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
+        'Framework :: Django :: 4.2',
+        'Framework :: Django :: 5.0',
+        'Framework :: Django :: 5.1',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development',
