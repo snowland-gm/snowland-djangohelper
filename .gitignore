@@ -2,3 +2,10 @@ build/
 dist/
 .idea/
 /snowland_djangohelper.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+
