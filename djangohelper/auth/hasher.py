@@ -104,7 +104,7 @@ class PBKDF2_SM3PasswordHasher(BasePasswordHasher):
         SM3 = self._load_library()
         if not iterations:
             iterations = self.iterations
-        hash = pbkdf2(password, salt, iterations, digest=SM3)
+        hash = pbkdf2(password, salt, iterations, digest=pysmx.SM3.SM3Type)
         hash = base64.b64encode(hash).decode('ascii').strip()
         return "%s$%d$%s$%s" % (self.algorithm, iterations, salt, hash)
 
@@ -219,12 +219,14 @@ class SM3KDFPasswordHasher(BasePasswordHasher):
         if not iterations:
             iterations = self.iterations
         SM3 = self._load_library()
-        if isinstance(password, 'str'):
-            hash = SM3.KDF(password, self.iterations)
+        if isinstance(password, str):
+            z = force_bytes(password).hex()
         elif isinstance(password, (bytes, bytearray)):
-            hash = SM3.KDF(str(password, encoding='utf-8'), self.iterations)
+            z = bytes(password).hex()
         else:
             raise ValueError("password error")
+        # SM3.KDF expects a hex-encoded bit string Z and a key length (bytes).
+        hash = SM3.KDF(z, 32)
         return 'sm3kdf$%d$$%s' % (iterations, hash)
 
     def verify(self, password, encoded):
@@ -235,7 +237,7 @@ class SM3KDFPasswordHasher(BasePasswordHasher):
         assert encoded.startswith('sm3kdf$')
         if iterations is None:
             iterations = self.iterations
-        hash = encoded.splite('$')[-1]
+        hash = encoded.split('$')[-1]
         return OrderedDict([
             (_('algorithm'), self.algorithm),
             (_('iterations'), iterations),
