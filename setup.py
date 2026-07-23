@@ -28,7 +28,7 @@ setup(
     author_email='astar@snowland.ltd',
     maintainer='A.Star',
     maintainer_email='astar@snowland.ltd',
-    license='BSD License',
+    license='BSD-3-Clause',
     packages=find_packages(),
     package_data={
         'djangohelper/templetes/': ['*.html'],
@@ -41,7 +41,6 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
         'Programming Language :: Python :: Implementation',
         'Programming Language :: Python :: 3',
@@ -68,5 +67,8 @@ setup(
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Application Frameworks',
     ],
-    install_requires=load_install_requires()
+    install_requires=load_install_requires(),
+    extras_require={
+        'bcrypt': ['bcrypt'],
+    },
 )
