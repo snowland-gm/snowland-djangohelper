@@ -18,6 +18,7 @@ __all__ = [
 class BaseModel(models.Model):
     created_time = models.DateTimeField('创建时间', auto_now_add=True)
     updated_time = models.DateTimeField('更新时间', auto_now=True)
+    is_deleted = models.BooleanField('是否删除', default=False)
 
     class Meta:
         abstract = True
