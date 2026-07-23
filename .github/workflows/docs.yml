@@ -45,9 +45,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Enable GitHub Pages
+        # The deploy-pages `enablement` input does not auto-create the site for
+        # private repositories, so we enable it explicitly via the REST API.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X POST /repos/${{ github.repository }}/pages \
+            -f 'source[branch]=gh-pages' \
+            -f 'source[path]=/' || echo "Pages already enabled"
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          # Auto-enable GitHub Pages for this repo if it is not already enabled.
+          # Keep as a fallback for public repos.
           enablement: true
