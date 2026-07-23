@@ -48,3 +48,6 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Auto-enable GitHub Pages for this repo if it is not already enabled.
+          enablement: true
