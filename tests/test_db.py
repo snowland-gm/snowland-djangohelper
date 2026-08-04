@@ -117,7 +117,9 @@ class ViewSetTest(TestCase):
         # destroy
         view, req = self._build_view(rf.delete(f'/{pk}/'), 'destroy', pk=pk)
         resp = view.destroy(req)
-        self.assertEqual(resp.status_code, 204)
+        # destroy now returns 200 with a unified APIResponse body (id/pk)
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.data['data']['id'], pk)
 
 
 class TestArticleViewSetTest(TestCase):

@@ -7,13 +7,69 @@
 # @time: 2021/1/9 17:52
 # @Software: PyCharm
 
+from django.http import Http404
+from rest_framework import serializers
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 
+from djangohelper.common import ERROR_CODE_RESOURCE_NOT_FOUND
+from djangohelper.db.models import SoftDeleteMixin, UUIDMixin
 from djangohelper.responses import APIResponse
 
 
+def _build_model_serializer(model):
+    """Dynamically build a ``ModelSerializer`` for ``model``.
+
+    Used as a fallback when a viewset does not declare ``serializer_class``.
+
+    Field adjustments based on model mixins:
+    - ``UUIDMixin``: drop the internal ``id`` primary key from the output,
+      keeping the external ``uuid`` only.
+    - ``SoftDeleteMixin``: drop the ``is_deleted`` flag from the output.
+    """
+    exclude = []
+    if issubclass(model, UUIDMixin):
+        exclude.append('id')
+    if issubclass(model, SoftDeleteMixin):
+        exclude.append('is_deleted')
+
+    if exclude:
+        # When excluding fields, enumerate all concrete fields except the
+        # excluded ones (DRF forbids combining ``fields='__all__'`` with
+        # ``exclude``).
+        field_names = [
+            f.name for f in model._meta.get_fields()
+            if f.name not in exclude and not f.many_to_many and not f.one_to_many
+        ]
+        meta_attrs = {'model': model, 'fields': field_names}
+    else:
+        meta_attrs = {'model': model, 'fields': '__all__'}
+    meta = type('Meta', (), meta_attrs)
+    return type(
+        '{}Serializer'.format(model.__name__),
+        (serializers.ModelSerializer,),
+        {'Meta': meta},
+    )
+
+
 class SelfModelViewSet(ModelViewSet):
+    def get_queryset(self):
+        # Prefer an explicitly declared queryset; fall back to the model's
+        # default manager.
+        queryset = super().get_queryset()
+        # Soft-delete models: hide logically deleted rows by default across
+        # all actions that consume the queryset (list/retrieve/update...).
+        if queryset is not None and issubclass(queryset.model, SoftDeleteMixin):
+            queryset = queryset.filter(is_deleted=False)
+        return queryset
+
+    def get_serializer_class(self):
+        # Prefer an explicitly declared serializer; fall back to a dynamically
+        # generated ModelSerializer for the queryset's model.
+        if getattr(self, 'serializer_class', None) is not None:
+            return self.serializer_class
+        return _build_model_serializer(self.get_queryset().model)
+
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         page = self.paginate_queryset(queryset)
@@ -25,7 +81,17 @@ class SelfModelViewSet(ModelViewSet):
         return APIResponse(data=serializer.data)
 
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
+        try:
+            instance = self.get_object()
+        except Http404:
+            # Covers both genuinely missing rows and soft-deleted rows that
+            # have been filtered out by ``get_queryset``.
+            return APIResponse(
+                successful=False,
+                code=ERROR_CODE_RESOURCE_NOT_FOUND,
+                message='资源不存在',
+                status=status.HTTP_404_NOT_FOUND,
+            )
         serializer = self.get_serializer(instance)
         return APIResponse(data=serializer.data)
 
@@ -50,7 +116,21 @@ class SelfModelViewSet(ModelViewSet):
 
         return APIResponse(data=serializer.data)
 
+    def perform_destroy(self, instance):
+        # Soft-delete models: mark as deleted instead of removing the row.
+        if isinstance(instance, SoftDeleteMixin):
+            instance.is_deleted = True
+            instance.save(update_fields=['is_deleted'])
+        else:
+            instance.delete()
+
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
+        # Return the external identifier: ``uuid`` for UUIDMixin models,
+        # otherwise the primary key ``id``.
+        if isinstance(instance, UUIDMixin):
+            key, value = 'uuid', instance.uuid
+        else:
+            key, value = 'id', instance.pk
         self.perform_destroy(instance)
-        return APIResponse(status=status.HTTP_204_NO_CONTENT)
+        return APIResponse(data={key: value}, status=status.HTTP_200_OK)
