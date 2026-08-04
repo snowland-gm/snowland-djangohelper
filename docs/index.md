@@ -4,17 +4,22 @@
 
 Welcome to the `snowland-djangohelper` documentation. This page is the navigation hub with links to all available docs.
 
+- [English version / 英文版](index_en.md)
+
 ---
 
 ## API 文档 / API Reference
 
-- [API 文档（中文，详细版 · 0.3.0）](v0_3/API_zh.md)
-- [API Reference (English, Detailed · 0.3.0)](v0_3/API_en.md)
+- [API 文档（中文，详细版 · 0.3.1）](v0_3_1/API_zh.md)
+- [API Reference (English, Detailed · 0.3.1)](v0_3_1/API_en.md)
+- [API 文档（中文，历史版 · 0.3.0）](v0_3/API_zh.md)
+- [API Reference (English, Historical · 0.3.0)](v0_3/API_en.md)
 - [API 文档（中文，历史版 · 0.2.0）](v0_2/API_zh.md)
 - [API Reference (English, Historical · 0.2.0)](v0_2/API_en.md)
 
 ## 版本发布记录 / Release Notes
 
+- [v0.3.1 发布说明](version/version_release_v0.3.1.md)
 - [v0.3 发布说明](version/version_release_v0.3.md)
 - [v0.2 发布说明](version/version_release_v0.2.md)
 

@@ -2,9 +2,11 @@
 
 [![version](https://img.shields.io/pypi/v/snowland-djangohelper.svg)](https://pypi.python.org/pypi/snowland-djangohelper)
 [![gitee](https://gitee.com/snowlandltd/snowland-djangohelper/badge/star.svg)](https://gitee.com/snowlandltd/snowland-djangohelper/stargazers)
-[![download](https://img.shields.io/pypi/dm/snowland-djangohelper.svg)](https://pypi.org/project/snowland-djangohelper)
+[![download](https://img.shields.io/pypi/dm/snowland-djangohelper.svg?cacheSeconds=86400)](https://pypi.org/project/snowland-djangohelper)
 [![wheel](https://img.shields.io/pypi/wheel/snowland-djangohelper.svg)](https://pypi.python.org/pypi/snowland-djangohelper)
 ![status](https://img.shields.io/pypi/status/snowland-djangohelper.svg)
+
+- [English version / 英文版](README_EN.md)
 
 > Django 与 Django REST Framework（DRF）实用工具 / 扩展库。
 
@@ -59,8 +61,7 @@ pip install snowland-djangohelper[bcrypt]
 
 ```bash
 # 从 https://gitee.com/snowlandltd/snowland-djangohelper 下载代码（可选择 release 版本）
-pip install -r requirements.txt
-python setup.py install
+pip install .
 ```
 
 > 注意：本项目需要 Python 3.6+ 与 Django 2.0+（兼容至 Django 5.1）。
@@ -158,7 +159,7 @@ Article.filter(title__contains="He")
 
 可选依赖：
 
-- `bcrypt`（`BCrypt-SM3` 密码哈希器所需，对应 `setup.py` 的 `extras_require['bcrypt']`，通过 `pip install snowland-djangohelper[bcrypt]` 安装）
+- `bcrypt`（`BCrypt-SM3` 密码哈希器所需，对应 `pyproject.toml` 的 `project.optional-dependencies.bcrypt`，通过 `pip install snowland-djangohelper[bcrypt]` 安装）
 
 发布与文档依赖：
 
@@ -175,4 +176,4 @@ Article.filter(title__contains="He")
 
 ## 许可证
 
-本项目基于 **BSD License** 发布。
+本项目基于 [**BSD License**](LICENSE) 发布。

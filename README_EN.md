@@ -2,9 +2,11 @@
 
 [![version](https://img.shields.io/pypi/v/snowland-djangohelper.svg)](https://pypi.python.org/pypi/snowland-djangohelper)
 [![gitee](https://gitee.com/snowlandltd/snowland-djangohelper/badge/star.svg)](https://gitee.com/snowlandltd/snowland-djangohelper/stargazers)
-[![download](https://img.shields.io/pypi/dm/snowland-djangohelper.svg)](https://pypi.org/project/snowland-djangohelper)
+[![download](https://img.shields.io/pypi/dm/snowland-djangohelper.svg?cacheSeconds=86400)](https://pypi.org/project/snowland-djangohelper)
 [![wheel](https://img.shields.io/pypi/wheel/snowland-djangohelper.svg)](https://pypi.python.org/pypi/snowland-djangohelper)
 ![status](https://img.shields.io/pypi/status/snowland-djangohelper.svg)
+
+- [中文版 / Chinese version](README.md)
 
 > A practical toolkit / extension library for Django and Django REST Framework (DRF).
 
@@ -59,8 +61,7 @@ pip install snowland-djangohelper[bcrypt]
 
 ```bash
 # Download the code from https://gitee.com/snowlandltd/snowland-djangohelper (choose a release version)
-pip install -r requirements.txt
-python setup.py install
+pip install .
 ```
 
 > Note: This project requires Python 3.6+ and Django 2.0+ (compatible up to Django 5.1).
@@ -158,7 +159,7 @@ Runtime dependencies:
 
 Optional dependencies:
 
-- `bcrypt` (required by the `BCrypt-SM3` password hasher; corresponds to `extras_require['bcrypt']` in `setup.py`; install via `pip install snowland-djangohelper[bcrypt]`)
+- `bcrypt` (required by the `BCrypt-SM3` password hasher; corresponds to `project.optional-dependencies.bcrypt` in `pyproject.toml`; install via `pip install snowland-djangohelper[bcrypt]`)
 
 Upload & docs dependencies:
 
@@ -175,4 +176,4 @@ Upload & docs dependencies:
 
 ## License
 
-This project is released under the **BSD License**.
+This project is released under the [**BSD License**](LICENSE).

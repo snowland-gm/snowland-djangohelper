@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snowland-djangohelper"
+version = "0.3"
+description = "django helper, toolkit for django."
+readme = "README.md"
+requires-python = ">=3.6"
+license = { text = "BSD-3-Clause" }
+authors = [
+    { name = "A.Star", email = "astar@snowland.ltd" },
+]
+maintainers = [
+    { name = "A.Star", email = "astar@snowland.ltd" },
+]
+urls = { Home = "https://gitee.com/snowlandltd/snowland-djangohelper" }
+dependencies = [
+    "django>=2.0.5",
+    "djangorestframework>=3.11.1",
+    "snowland-smx>=1.0",
+    "requests",
+]
+
+[project.optional-dependencies]
+bcrypt = ["bcrypt"]
+
+[tool.setuptools]
+packages = { find = {} }
+
+[tool.setuptools.package-data]
+djangohelper = ["templetes/*.html"]
+
+[tool.setuptools.dynamic]
+# ``version`` and ``dependencies`` are declared statically above; this keeps
+# the build fully PEP 517 / PEP 621 compliant without a setup.py shim.
