@@ -103,7 +103,7 @@ pbkdf2(password, salt, iterations, dklen=0, digest=pysmx.SM3.SM3Type) -> bytes
 ```python
 APIResponse(data=None, status=None, template_name=None, headers=None,
             exception=False,
-            content_type='application/json; charset=utf-8 ',
+            content_type='application/json; charset=utf-8',
             successful=True, code=ERROR_CODE_OPERATION_SUCCESS, message=None)
 ```
 
@@ -113,7 +113,7 @@ APIResponse(data=None, status=None, template_name=None, headers=None,
   - `template_name` (str, default `None`): template name (rarely used).
   - `headers` (dict, default `None`): response headers.
   - `exception` (bool, default `False`): whether this is an exception response.
-  - `content_type` (str, default `'application/json; charset=utf-8 '`): response content type.
+  - `content_type` (str, default `'application/json; charset=utf-8`): response content type.
   - `successful` (bool, default `True`): business success flag.
   - `code` (int, default `ERROR_CODE_OPERATION_SUCCESS=1`): business error code.
   - `message` (str|None, default `None`): hint message.

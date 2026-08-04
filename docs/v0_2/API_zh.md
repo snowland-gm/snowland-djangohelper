@@ -103,7 +103,7 @@ pbkdf2(password, salt, iterations, dklen=0, digest=pysmx.SM3.SM3Type) -> bytes
 ```python
 APIResponse(data=None, status=None, template_name=None, headers=None,
             exception=False,
-            content_type='application/json; charset=utf-8 ',
+            content_type='application/json; charset=utf-8',
             successful=True, code=ERROR_CODE_OPERATION_SUCCESS, message=None)
 ```
 
@@ -113,7 +113,7 @@ APIResponse(data=None, status=None, template_name=None, headers=None,
   - `template_name` (str, 默认 `None`)：模板名（通常不使用）。
   - `headers` (dict, 默认 `None`)：响应头。
   - `exception` (bool, 默认 `False`)：是否为异常响应。
-  - `content_type` (str, 默认 `'application/json; charset=utf-8 '`)：响应内容类型。
+  - `content_type` (str, 默认 `'application/json; charset=utf-8`)：响应内容类型。
   - `successful` (bool, 默认 `True`)：业务成功标志。
   - `code` (int, 默认 `ERROR_CODE_OPERATION_SUCCESS=1`)：业务错误码。
   - `message` (str|None, 默认 `None`)：提示信息。

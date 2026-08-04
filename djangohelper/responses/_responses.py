@@ -24,7 +24,7 @@ class APIResponse(Response):
 
     def __init__(self, data=None, status=None,
                  template_name=None, headers=None,
-                 exception=False, content_type='application/json; charset=utf-8 ',
+                 exception=False, content_type='application/json; charset=utf-8',
                  successful=True, code=ERROR_CODE_OPERATION_SUCCESS, message=None):
         data = {
             'successful': successful,
