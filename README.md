@@ -155,7 +155,6 @@ Article.filter(title__contains="He")
 - `djangorestframework>=3.11.1`
 - `snowland-smx>=0.3.1`（国密算法支持）
 - `requests`
-- `astartool`
 
 可选依赖：
 
@@ -170,9 +169,7 @@ Article.filter(title__contains="He")
 
 ## 参考资料
 
-[1] https://github.com/ASTARCHEN/astartool
-
-[2] https://github.com/astar-club/astar-devopstool-python
+[1] https://github.com/astar-club/astar-devopstool-python
 
 ---
 

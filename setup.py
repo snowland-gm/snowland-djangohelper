@@ -8,13 +8,35 @@
 # @Software: PyCharm
 
 
-from astartool.setuptool import setup, load_install_requires
-from setuptools import find_packages
+import pathlib
+
+from setuptools import find_packages, setup
 from django.conf import settings
 
 settings.configure()
 
 from djangohelper import __version__
+
+
+def load_install_requires(filepath='requirements.txt', encoding='utf-8'):
+    """Read ``requirements.txt`` and return a list of install requirements.
+
+    Lines starting with ``#`` or ``-`` (e.g. ``-r``) are ignored. Inline
+    comments (``#``) are stripped. This replaces the previous
+    ``astartool.setuptool.load_install_requires`` helper.
+    """
+    file = pathlib.Path(filepath)
+    if not file.exists():
+        raise FileNotFoundError('file not found: {}'.format(filepath))
+    with file.open('r', encoding=encoding) as f:
+        lines = f.readlines()
+    requirements = (
+        line.split('#')[0].strip()
+        for line in lines
+        if not line.strip().startswith('#') and not line.startswith('-')
+    )
+    return [req for req in requirements if req]
+
 
 setup(
     name='snowland-djangohelper',

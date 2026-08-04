@@ -15,14 +15,7 @@ import pysmx
 from django.contrib.auth.hashers import BasePasswordHasher, mask_hash
 from django.utils.crypto import (
     constant_time_compare, )
-try:
-    from astartool.string import force_bytes, force_text
-except:
-    try:
-        from django.utils.encoding import force_bytes, force_text
-    except:
-        from django.utils.encoding import force_bytes
-        from django.utils.encoding import force_str as force_text
+from django.utils.encoding import force_bytes, force_str as force_text
 
 from django.utils.translation import gettext_noop as _
 

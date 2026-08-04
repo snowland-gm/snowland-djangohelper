@@ -294,13 +294,13 @@ Exported objects:
 ### 7.1 `djangohelper.number_tool`
 
 **`random_string(n: int = 32) -> str`**
-- Functionality: generate a random alphanumeric string from `qwertyuiopasdfghjklzxcvbnm1234567890` (delegates to `astartool`).
+- Functionality: generate a random alphanumeric string from `qwertyuiopasdfghjklzxcvbnm1234567890` (implemented with the standard-library `secrets.SystemRandom`).
 - Parameters: `n` (int, default `32`): length.
 - Returns: `str`, a random string of length `n`.
 
-**`random_hex_string`**
-- Functionality: SM3 hex random string (references `astartool.random.random_hex_string` directly).
-- Parameters: same as `astartool`.
+**`random_hex_string(n: int = 32, upper: bool = False) -> str`**
+- Functionality: generate a random hexadecimal string (implemented with the standard-library `secrets.SystemRandom`).
+- Parameters: `n` (int, default `32`): length; `upper` (bool, default `False`): output uppercase.
 - Returns: a hex random string.
 
 ### 7.2 `djangohelper.common`

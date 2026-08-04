@@ -155,7 +155,6 @@ Runtime dependencies:
 - `djangorestframework>=3.11.1`
 - `snowland-smx>=0.3.1` (SM crypto support)
 - `requests`
-- `astartool`
 
 Optional dependencies:
 
@@ -170,9 +169,7 @@ Upload & docs dependencies:
 
 ## References
 
-[1] https://github.com/ASTARCHEN/astartool
-
-[2] https://github.com/astar-club/astar-devopstool-python
+[1] https://github.com/astar-club/astar-devopstool-python
 
 ---
 

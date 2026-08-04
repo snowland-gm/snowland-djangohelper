@@ -294,13 +294,13 @@ generate_paginator_result(queryset, per_page, orphans=0,
 ### 7.1 `djangohelper.number_tool`
 
 **`random_string(n: int = 32) -> str`**
-- 功能：生成由 `qwertyuiopasdfghjklzxcvbnm1234567890` 组成的随机字母数字串（底层调用 `astartool`）。
+- 功能：生成由 `qwertyuiopasdfghjklzxcvbnm1234567890` 组成的随机字母数字串（基于标准库 `secrets.SystemRandom` 实现）。
 - 入参：`n` (int, 默认 `32`)：长度。
 - 出参：`str`，长度 `n` 的随机串。
 
-**`random_hex_string`**
-- 功能：SM3 十六进制随机串（直接引用自 `astartool.random.random_hex_string`）。
-- 入参：同 `astartool`。
+**`random_hex_string(n: int = 32, upper: bool = False) -> str`**
+- 功能：生成十六进制随机串（基于标准库 `secrets.SystemRandom` 实现）。
+- 入参：`n` (int, 默认 `32`)：长度；`upper` (bool, 默认 `False`)：是否输出大写。
 - 出参：十六进制随机串。
 
 ### 7.2 `djangohelper.common`

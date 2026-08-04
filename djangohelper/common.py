@@ -7,7 +7,6 @@
 # @time: 2018/10/29 10:24
 # @Software: PyCharm
 
-
 list_allow_extension = [
     '.py',
     '.jl',
@@ -28,11 +27,10 @@ list_allow_extension = [
 list_ignore = [
     '.git',
     '.gitignore',
-    '__pycache__/'
+    '__pycache__/',
     '*.py[cod]',
-    # '*$py.class',
     '*.so',
-    '.Python'
+    '.Python',
     'build/',
     'develop-eggs/',
     'dist/',
@@ -74,7 +72,7 @@ list_ignore = [
     'docs/_build/',
     'target/',
     '.ipynb_checkpoints',
-    '.python-version',
+    '.python-api',
     'celerybeat-schedule',
     '.env',
     '.venv',
@@ -90,6 +88,7 @@ list_ignore = [
     '.mypy_cache/',
     '.idea/'
 ]
+
 ERROR_CODE_UNKNOWN = -1  # 未知错误
 ERROR_CODE_OPERATION_FAILED = 0  # 操作失败
 ERROR_CODE_OPERATION_SUCCESS = 1  # 操作成功
@@ -101,6 +100,7 @@ ERROR_CODE_ACCOUNT_LOCKED_ERROR = 6  # 账户被锁定、禁用|
 ERROR_CODE_IP_TRY_TIME_LIMITED_ERROR = 7  # 同一终端登录失败次数超过限制|
 ERROR_CODE_ACCOUNT_TRY_TIME_LIMITED_ERROR = 8  # 同一账户登录失败次数超过限制|
 ERROR_CODE_SERVER_ERROR = 99  # 后台处于维护状态|
+ERROR_CODE_RESOURCE_NOT_FOUND = 404  # 资源不存在
 
 JSON_DEMO = {
     'successful': False,
