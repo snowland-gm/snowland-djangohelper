@@ -9,8 +9,20 @@
 
 
 from djangohelper.db.models._base import BaseModel
+from djangohelper.db.models.mixins import (
+    ActiveManager,
+    DeletedManager,
+    SoftDeleteMixin,
+    TimestampMixin,
+    UUIDMixin,
+)
 
 
 __all__ = [
-    'BaseModel'
+    'BaseModel',
+    'UUIDMixin',
+    'TimestampMixin',
+    'SoftDeleteMixin',
+    'ActiveManager',
+    'DeletedManager',
 ]

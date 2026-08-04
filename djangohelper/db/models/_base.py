@@ -10,15 +10,29 @@
 
 from django.db import models
 
+from djangohelper.db.models.mixins import (
+    ActiveManager,
+    DeletedManager,
+    SoftDeleteMixin,
+    TimestampMixin,
+)
+
 __all__ = [
     'BaseModel'
 ]
 
 
-class BaseModel(models.Model):
-    created_time = models.DateTimeField('创建时间', auto_now_add=True)
-    updated_time = models.DateTimeField('更新时间', auto_now=True)
-    is_deleted = models.BooleanField('是否删除', default=False)
+class BaseModel(TimestampMixin, SoftDeleteMixin, models.Model):
+    """Abstract base model with timestamp and soft-delete support.
+
+    The ``active`` manager returns only non-deleted rows, while ``deleted``
+    returns only soft-deleted rows. The inherited default ``objects`` manager
+    still sees every row.
+    """
+
+    objects = models.Manager()
+    active = ActiveManager()
+    deleted = DeletedManager()
 
     class Meta:
         abstract = True
