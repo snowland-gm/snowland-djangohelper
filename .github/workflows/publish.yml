@@ -22,12 +22,10 @@ jobs:
       - name: Install build dependencies
         run: |
           python -m pip install --upgrade pip
-          # astartool and django are imported at build time by setup.py
-          pip install astartool "django>=2.0.5"
-          pip install setuptools wheel twine
+          pip install build twine
 
       - name: Build distributions
-        run: python setup.py sdist bdist_wheel
+        run: python -m build
 
       - name: Publish to PyPI
         env:
@@ -37,4 +35,4 @@ jobs:
 
       - name: Clean up build artifacts
         if: always()
-        run: rm -rf build dist *.egg-info
+        run: rm -rf dist build *.egg-info
