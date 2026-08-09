@@ -1,4 +1,4 @@
 django>=2.0.5
 djangorestframework>=3.11.1
 snowland-smx>=1.0
-requests
+snowland-authsdk>=0.2
