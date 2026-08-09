@@ -8,7 +8,4 @@
 # @Software: PyCharm
 
 
-from djangohelper.contrib.auth.hasher import *
-import warnings
-
-warnings.warn('This package will be discarded in version 1.0.0. Please use djangohelper.contrib.auth')
+from djangohelper.auth.hasher import *
