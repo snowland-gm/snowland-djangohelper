@@ -14,8 +14,18 @@ DATABASES = {
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.auth',
+    'django.contrib.sessions',
     'rest_framework',
     'tests.testapp',
+    'djangohelper.contrib.snowlandauth',
+]
+
+# Use the package's own user model so the auth backend / user relations resolve
+# against SnowlandUser instead of the default auth.User.
+AUTH_USER_MODEL = 'snowlandauth.SnowlandUser'
+
+AUTHENTICATION_BACKENDS = [
+    'djangohelper.contrib.snowlandauth.models.CustomBackend',
 ]
 
 # The in-test app has no migrations; let Django create tables from models.
