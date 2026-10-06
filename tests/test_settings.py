@@ -18,6 +18,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'tests.testapp',
     'djangohelper.contrib.snowlandauth',
+    'djangohelper.contrib.developer',
+    'djangohelper.contrib.friendlink',
 ]
 
 # Use the package's own user model so the auth backend / user relations resolve
@@ -28,8 +30,12 @@ AUTHENTICATION_BACKENDS = [
     'djangohelper.contrib.snowlandauth.models.CustomBackend',
 ]
 
-# The in-test app has no migrations; let Django create tables from models.
-MIGRATION_MODULES = {'testapp': None}
+# The in-test app and the contrib apps under test have no migrations; let Django
+# create tables directly from their models.
+MIGRATION_MODULES = {
+    'testapp': None,
+    'djangohelper.contrib.developer': None,
+}
 
 USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
