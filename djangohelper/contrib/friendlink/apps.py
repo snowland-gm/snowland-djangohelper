@@ -1,5 +1,6 @@
-from djangohelper.apps import AppConfig
+from django.apps import AppConfig
 
 
 class FriendlinkConfig(AppConfig):
-    name = 'friendlink'
+    name = 'djangohelper.contrib.friendlink'
+    label = 'friendlink'
