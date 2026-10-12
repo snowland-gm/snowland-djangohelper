@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=61.0", "wheel", "django>=2.0.5"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "snowland-djangohelper"
-version = "0.3.2"
+dynamic = ["version"]
 description = "django helper, toolkit for django."
 readme = "README.md"
 requires-python = ">=3.6"
@@ -34,5 +34,5 @@ packages = { find = {} }
 djangohelper = ["templetes/*.html"]
 
 [tool.setuptools.dynamic]
-# ``version`` and ``dependencies`` are declared statically above; this keeps
-# the build fully PEP 517 / PEP 621 compliant without a setup.py shim.
+# ``version`` 从包内属性动态导入，避免与 `djangohelper/__init__.py` 的 VERSION 重复维护、产生不一致。
+version = { attr = "djangohelper.__version__" }

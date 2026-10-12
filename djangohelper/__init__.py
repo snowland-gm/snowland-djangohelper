@@ -8,12 +8,9 @@
 # @Software: PyCharm
 
 
-from django.utils.version import get_version
+VERSION = (0, 3, 2, 'post', 1)
 
-
-VERSION = (0, 3, 1, 'final', 0)
-
-__version__ = get_version(VERSION)
+__version__ = "0.3.2post1"
 
 
 def setup(set_prefix=True):

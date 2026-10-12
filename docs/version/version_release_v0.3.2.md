@@ -1,12 +1,12 @@
-# snowland-djangohelper-0.3.2 发布说明
+# snowland-djangohelper-0.3.2.post1 发布说明
 
-**Version: 0.3.2**
+**Version: 0.3.2.post1**
 
 **Auth:    A.Star**
 
 | 信息 | 值 |
 | :--: | :--: |
-| 版本 | 0.3.2 |
+| 版本 | 0.3.2.post1 |
 | 授权协议 | BSD License |
 | 开发语言 | PYTHON |
 | 操作系统 | 跨平台 |
@@ -30,7 +30,7 @@
 ### 依赖 / Dependencies
 
 1. `requirements.txt` 与 `pyproject.toml` 的 `dependencies` 新增 `snowland-authsdk>=0.2`。
-2. `pyproject.toml` 版本号提升至 `0.3.2`。
+2. 版本号统一提升至 `0.3.2.post1`：`pyproject.toml` 的 `version`（`0.3.2.post1`）与 `djangohelper/__init__.py` 的 `VERSION`（`(0, 3, 2, 'post', 1)`，即 `0.3.2.post1`）同步，修正代码内版本号仍停留在 `0.3.1` 的不一致问题。
 
 ### 测试 / Tests
 
